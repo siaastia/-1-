@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class ReverseArrayList {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); // создаём сканер для ввода
+        System.out.print("Введите количество элементов: ");
+        int n = sc.nextInt(); // читаем количество элементов
+
+        ArrayList<Integer> arr = new ArrayList<>(); // создаём список
+        System.out.println("Введите элементы:");
+        for (int i = 0; i < n; i++) {
+            arr.add(sc.nextInt()); // читаем элементы по одному
+        }
+
+        Stack<Integer> st = new Stack<>(); // создаём стек
+        for (int num : arr) {
+            st.push(num); // помещаем элементы в стек
+        }
+
+        System.out.print("Список в обратном порядке: ");
+        while (!st.empty()) {
+            System.out.print(st.pop() + " "); // извлекаем элементы и выводим
+        }
+    }
+}
