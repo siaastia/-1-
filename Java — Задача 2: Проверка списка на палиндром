@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class PalindromeArrayList {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Введите количество элементов: ");
+        int n = sc.nextInt();
+
+        ArrayList<Integer> arr = new ArrayList<>();
+        System.out.println("Введите элементы:");
+        for (int i = 0; i < n; i++) {
+            arr.add(sc.nextInt()); // ввод элементов
+        }
+
+        Stack<Integer> st = new Stack<>();
+        for (int num : arr) {
+            st.push(num); // помещаем в стек
+        }
+
+        boolean isPalindrome = true;
+        for (int i = 0; i < arr.size(); i++) {
+            int top = st.pop(); // снимаем верхний элемент
+            if (!arr.get(i).equals(top)) { // сравниваем
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not palindrome");
+    }
+}
+
