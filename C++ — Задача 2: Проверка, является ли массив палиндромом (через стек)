@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Введите количество элементов: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Введите элементы массива: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    stack<int> st;
+    for (int i = 0; i < n; i++) {
+        st.push(arr[i]);
+    }
+
+    bool isPalindrome = true;
+    for (int i = 0; i < n; i++) {
+        int top = st.top();
+        st.pop();
+        if (arr[i] != top) {
+            isPalindrome = false;
+            break;
+        }
+    }
+
+    if (isPalindrome) cout << "Palindrome" << endl;
+    else cout << "Not palindrome" << endl;
+
+    return 0;
+}
